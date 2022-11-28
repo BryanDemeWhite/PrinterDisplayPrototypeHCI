@@ -84,9 +84,9 @@
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label1.Location = new System.Drawing.Point(446, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(254, 38);
+            this.label1.Size = new System.Drawing.Size(238, 38);
             this.label1.TabIndex = 5;
-            this.label1.Text = "DND 60000 Series";
+            this.label1.Text = "DND 6000 Series";
             // 
             // tabControl1
             // 
@@ -172,7 +172,7 @@
             this.Copy.Location = new System.Drawing.Point(4, 29);
             this.Copy.Name = "Copy";
             this.Copy.Padding = new System.Windows.Forms.Padding(3);
-            this.Copy.Size = new System.Drawing.Size(1210, 346);
+            this.Copy.Size = new System.Drawing.Size(1210, 331);
             this.Copy.TabIndex = 1;
             this.Copy.Text = "Copy";
             this.Copy.UseVisualStyleBackColor = true;
@@ -182,7 +182,7 @@
             this.Scan.Location = new System.Drawing.Point(4, 29);
             this.Scan.Name = "Scan";
             this.Scan.Padding = new System.Windows.Forms.Padding(3);
-            this.Scan.Size = new System.Drawing.Size(1210, 346);
+            this.Scan.Size = new System.Drawing.Size(1210, 331);
             this.Scan.TabIndex = 2;
             this.Scan.Text = "Scan";
             this.Scan.UseVisualStyleBackColor = true;
@@ -201,7 +201,7 @@
             this.Setup.Location = new System.Drawing.Point(4, 29);
             this.Setup.Name = "Setup";
             this.Setup.Padding = new System.Windows.Forms.Padding(3);
-            this.Setup.Size = new System.Drawing.Size(1210, 346);
+            this.Setup.Size = new System.Drawing.Size(1210, 331);
             this.Setup.TabIndex = 3;
             this.Setup.Text = "Setup";
             // 
@@ -389,7 +389,7 @@
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel2);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "DND 6000 Series Printer";
             this.tabControl1.ResumeLayout(false);
             this.Main.ResumeLayout(false);
             this.Setup.ResumeLayout(false);
