@@ -16,13 +16,35 @@ namespace PrinterDisplayPrototype
         private void iconButton1_Click(object sender, EventArgs e)
         {
             // tabControl1.SelectTab(Copy);
-            logLine("Copying document");
+            Random rnd = new Random();
+            int error = rnd.Next(1, 11);
+            if(error <=3)
+            {
+                logLine("Connection dropped. Try connecting again.",Color.Red);
+            }
+            else
+            {
+                logLine("Copying document.", Color.White);
+
+            }
+            
         }
 
         private void iconButton2_Click(object sender, EventArgs e)
         {
             //tabControl1.SelectTab(Scan);
-            logLine("Scanning document to connected PC");
+            Random rnd = new Random();
+            int error = rnd.Next(1, 11);
+            if (error <= 3)
+            {
+                logLine("Connection dropped. Try connecting again.", Color.Red);
+            }
+            else
+            {
+                logLine("Scanning document to connected PC.", Color.White);
+
+            }
+                
         }
 
         private void iconButton3_Click(object sender, EventArgs e)
@@ -30,16 +52,17 @@ namespace PrinterDisplayPrototype
             //tabControl1.SelectTab(Setup);
             Task.Run(() => settingUP());
         }
-        public void logLine(string line)
+        public void logLine(string line, Color color)
         {
             if (InvokeRequired)
             {
-                this.Invoke(new Action<string>(logLine), new object[] { line });
+                this.Invoke(new Action<string,Color>(logLine), new object[] { line,color });
                 return;
             }
             this.Invoke((MethodInvoker)delegate ()
             {
                 richTextBox1.Select(0, 0);
+                richTextBox1.SelectionColor = color;
                 richTextBox1.SelectedText = line + "\r\n";
 
             });
@@ -49,13 +72,13 @@ namespace PrinterDisplayPrototype
         {
             if(selectedNetwork==true)
             {
-                logLine("Setting Up Printer on selected network, this may take a minute!");
+                logLine("Setting up printer on selected network, this may take a minute!", Color.White);
                 Task.Delay(3000).Wait();
-                logLine("You're all set to start printing!");
+                logLine("You're all set to start printing!", Color.Green);
             }
             else
             {
-                logLine("Please Select a Network");
+                logLine("Please select a network.", Color.White);
             }
            
 
@@ -63,9 +86,9 @@ namespace PrinterDisplayPrototype
         }
         public void Welcome()
         {
-            logLine("Welcome to your new DND 6000 Series printer");
+            logLine("Welcome to your new DND 6000 Series printer.", Color.White);
             Task.Delay(1000).Wait();
-            logLine("Begin by connecting to a network.");
+            logLine("Begin by connecting to a network.", Color.White);
         }
 
         private void iconButton4_Click(object sender, EventArgs e)
@@ -75,7 +98,13 @@ namespace PrinterDisplayPrototype
 
         private void iconButton5_Click(object sender, EventArgs e)
         {
+            for (int i = 0; i < checkedListBox1.Items.Count; i++)
+            {
+                checkedListBox1.SetItemChecked(i, false);
+
+            }
             tabControl1.SelectTab(Setup);
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -83,14 +112,14 @@ namespace PrinterDisplayPrototype
             try
             {
 
-                logLine("You Connected to " + checkedListBox1.SelectedItem.ToString() + ". You can now begin the Setup.");
+                logLine("You connected to " + checkedListBox1.SelectedItem.ToString() + ". You can now begin the Setup.", Color.Green);
                 checkedListBox1.SetItemChecked(checkedListBox1.SelectedIndex, true);
                 tabControl1.SelectTab(Main);
                 selectedNetwork = true;
             }
             catch (Exception ex)
             {
-                logLine("Please Select a Network");
+                logLine("Please select a network.", Color.White);
             }
             
             
